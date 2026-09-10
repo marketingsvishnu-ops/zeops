@@ -1,196 +1,357 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cricket Sports</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      background: #f4f7f6;
-      color: #222;
-    }
+body{
+  background:#0f1020;
+  color:white;
+}
 
-    header {
-      background: #075e36;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
+}
 
-    nav {
-      background: #043d25;
-      padding: 12px;
-      text-align: center;
-    }
+.demo{
+  width:70%;
+  background:#111;
+  position:relative;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+}
 
-    .hero {
-      background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-                  url("https://images.unsplash.com/photo-1531415074968-036ba1b575da")
-                  center/cover;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#181a35,#0b0c18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
+}
 
-    .hero h1 {
-      font-size: 50px;
-    }
+.box{
+  width:100%;
+  background:rgba(10,10,10,.88);
+  border:1px solid #1E90FF;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(30,144,255,.28);
+}
 
-    .hero p {
-      font-size: 20px;
-      margin-top: 10px;
-    }
+.badge{
+  display:inline-block;
+  background:#1E90FF;
+  color:#fff;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 40px auto;
-    }
+h1{
+  font-size:34px;
+  color:#1E90FF;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
 
-    .cards {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#eee;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      flex: 1;
-      min-width: 250px;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,.15);
-    }
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
+}
 
-    .card h2 {
-      color: #075e36;
-      margin-bottom: 10px;
-    }
+.feature{
+  background:linear-gradient(90deg,#1b1b1b,#0d1c30);
+  border:1px solid rgba(66,153,225,.55);
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+}
 
-    .score {
-      background: #075e36;
-      color: white;
-      padding: 20px;
-      margin-top: 15px;
-      border-radius: 8px;
-    }
+.feature span{
+  color:#1E90FF;
+}
 
-    footer {
-      background: #043d25;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-  </style>
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #1ebe5d;
+  transition:.3s;
+}
+
+.signup-btn:hover{
+  background:#1ebe5d;
+  transform:scale(1.03);
+}
+
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.website-row a{
+  text-decoration:none;
+}
+
+.website{
+  color:#25D366;
+}
+
+.whatsapp-small{
+  color:#1E90FF;
+}
+
+.cta{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(37,211,102,.35);
+  transition:.3s;
+}
+
+.cta:hover{
+  transform:scale(1.03);
+  background:#1ebe5d;
+}
+
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:#1E90FF;
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #fff;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(30,144,255,0.6);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:#0B6EDB;
+  box-shadow:0 12px 25px rgba(30,144,255,0.8);
+}
+
+.trust{
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#aaa;
+  line-height:1.5;
+}
+
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
+
+  .demo,
+  .right{
+    width:100%;
+  }
+
+  iframe{
+    height:500px;
+  }
+
+  .right{
+    padding:20px;
+  }
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
+
+  .sub{
+    font-size:16px;
+  }
+
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
+
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
+
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
+
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+</style>
+
 </head>
 
 <body>
 
-  <header>
-    <h1>🏏 Cricket Sports</h1>
-    <p>Your Ultimate Cricket Hub</p>
-  </header>
+<div class="container">
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Matches</a>
-    <a href="#">Teams</a>
-    <a href="#">Players</a>
-    <a href="#">News</a>
-  </nav>
+  <div class="demo">
+    <a href="https://diamond247.com/clk?src=fLABjgt7" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="https://diamond247.com/clk?src=fLABjgt7"></iframe>
+  </div>
 
-  <section class="hero">
-    <div>
-      <h1>Welcome to Cricket World</h1>
-      <p>Live the passion. Feel the game. Love Cricket.</p>
-    </div>
-  </section>
+  <div class="right">
+    <div class="box">
 
-  <div class="container">
+```
+  <div class="badge">AUTO WEBSITE</div>
 
-    <h1>Latest Matches</h1>
+  <h1>Get Your ID Now</h1>
 
-    <div class="cards">
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
 
-      <div class="card">
-        <h2>India vs Australia</h2>
-        <p>International Cricket Match</p>
+  <div class="features">https://diamond247.com/clk?src=fLABjgt7
 
-        <div class="score">
-          <strong>IND 245/6</strong><br>
-          Australia 198/8
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>England vs Pakistan</h2>
-        <p>T20 International</p>
-
-        <div class="score">
-          <strong>PAK 176/5</strong><br>
-          England 170/7
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>South Africa vs New Zealand</h2>
-        <p>ODI Cricket</p>
-
-        <div class="score">
-          <strong>NZ 289/7</strong><br>
-          South Africa 250/9
-        </div>
-      </div>
-
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
     </div>
 
-    <br><br>
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
+    </div>
 
-    <h1>Popular Cricket Players</h1>
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="https://diamond247.com/clk?src=fLABjgt7"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
+    </div>
 
-    <div class="cards">
-
-      <div class="card">
-        <h2>Virat Kohli</h2>
-        <p>Indian batsman and former captain.</p>
-      </div>
-
-      <div class="card">
-        <h2>Babar Azam</h2>
-        <p>Pakistani top-order batsman.</p>
-      </div>
-
-      <div class="card">
-        <h2>Ben Stokes</h2>
-        <p>English all-rounder and captain.</p>
-      </div>
-
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
     </div>
 
   </div>
 
-  <footer>
-    <p>© 2026 Cricket Sports | All Rights Reserved</p>
-  </footer>
+  <div class="website-row">
+
+    <a
+      class="website"
+      href="https://diamond247.com/clk?src=fLABjgt7"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 https://diamond247.com/clk?src=fLABjgt7
+    </a>
+
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/+44 7933838366"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <a
+    class="cta"
+    href="https://wa.me/+44 7933838366?text=Hello%20I%20want%20new%20diamond%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
+
+  <p class="trust">
+    ✅ Trusted Manual Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
+
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
+
+</div>
+```
+
+  </div>
+
+</div>
 
 </body>
 </html>
