@@ -1,357 +1,63 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#0f1020;
-  color:white;
-}
-
-.container{
-  display:flex;
-  flex-direction:row-reverse;
-  min-height:100vh;
-}
-
-.demo{
-  width:70%;
-  background:#111;
-  position:relative;
-}
-
-iframe{
-  width:100%;
-  height:100vh;
-  border:none;
-}
-
-.right{
-  width:30%;
-  padding:30px 22px;
-  background:linear-gradient(180deg,#181a35,#0b0c18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow-y:auto;
-}
-
-.box{
-  width:100%;
-  background:rgba(10,10,10,.88);
-  border:1px solid #1E90FF;
-  border-radius:22px;
-  padding:26px 20px;
-  text-align:center;
-  box-shadow:0 0 35px rgba(30,144,255,.28);
-}
-
-.badge{
-  display:inline-block;
-  background:#1E90FF;
-  color:#fff;
-  padding:8px 18px;
-  border-radius:30px;
-  font-weight:800;
-  margin-bottom:16px;
-}
-
-h1{
-  font-size:34px;
-  color:#1E90FF;
-  margin-bottom:10px;
-  text-transform:uppercase;
-}
-
-.sub{
-  font-size:17px;
-  line-height:1.5;
-  margin-bottom:22px;
-  color:#eee;
-}
-
-.features{
-  display:grid;
-  gap:12px;
-  margin:22px 0;
-}
-
-.feature{
-  background:linear-gradient(90deg,#1b1b1b,#0d1c30);
-  border:1px solid rgba(66,153,225,.55);
-  padding:14px;
-  border-radius:14px;
-  font-size:17px;
-  font-weight:700;
-}
-
-.feature span{
-  color:#1E90FF;
-}
-
-/* Signup Button */
-.signup-btn{
-  display:inline-block;
-  margin-top:8px;
-  padding:9px 16px;
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  border-radius:9px;
-  font-size:15px;
-  font-weight:800;
-  border:1px solid #1ebe5d;
-  transition:.3s;
-}
-
-.signup-btn:hover{
-  background:#1ebe5d;
-  transform:scale(1.03);
-}
-
-.website-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-top:16px;
-  font-size:14px;
-  font-weight:bold;
-}
-
-.website-row a{
-  text-decoration:none;
-}
-
-.website{
-  color:#25D366;
-}
-
-.whatsapp-small{
-  color:#1E90FF;
-}
-
-.cta{
-  display:block;
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  padding:17px;
-  border-radius:16px;
-  font-size:20px;
-  font-weight:900;
-  margin-top:22px;
-  box-shadow:0 8px 18px rgba(37,211,102,.35);
-  transition:.3s;
-}
-
-.cta:hover{
-  transform:scale(1.03);
-  background:#1ebe5d;
-}
-
-/* Floating Signup Button */
-.floating-signup{
-  position:absolute;
-  top:20px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:50;
-  background:#1E90FF;
-  color:#fff;
-  padding:12px 24px;
-  border-radius:8px;
-  font-size:18px;
-  font-weight:900;
-  border:3px solid #fff;
-  cursor:pointer;
-  box-shadow:0 8px 20px rgba(30,144,255,0.6);
-  transition:.3s;
-  text-decoration:none;
-  display:inline-block;
-}
-
-.floating-signup:hover{
-  transform:translateX(-50%) scale(1.08);
-  background:#0B6EDB;
-  box-shadow:0 12px 25px rgba(30,144,255,0.8);
-}
-
-.trust{
-  margin-top:16px;
-  color:#ccc;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.footer{
-  margin-top:18px;
-  font-size:12px;
-  color:#aaa;
-  line-height:1.5;
-}
-
-@media(max-width:768px){
-  .container{
-    flex-direction:column-reverse;
-  }
-
-  .demo,
-  .right{
-    width:100%;
-  }
-
-  iframe{
-    height:500px;
-  }
-
-  .right{
-    padding:20px;
-  }
-}
-
-@media(max-width:480px){
-  h1{
-    font-size:28px;
-  }
-
-  .sub{
-    font-size:16px;
-  }
-
-  .feature{
-    font-size:16px;
-    padding:12px;
-  }
-
-  .signup-btn{
-    font-size:14px;
-    padding:8px 13px;
-  }
-
-  .cta{
-    font-size:18px;
-    padding:15px;
-  }
-
-  .website-row{
-    flex-direction:column;
-    gap:8px;
-  }
-}
-</style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cricket Match Updates</title>
+  <meta name="description" content="Explore cricket match schedules, team news and player stories in one place.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307192f'/%3E%3Ccircle cx='32' cy='34' r='17' fill='white'/%3E%3Cpath d='M22 22c8 7 12 17 14 28M28 18c9 7 14 17 16 27' stroke='%232da9e9' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <style>
+    :root { color-scheme: dark; --navy:#061426; --blue:#178ed1; --sky:#6ed3ff; --ink:#eaf7ff; --muted:#a9c4d8; --line:rgba(136,210,247,.18); }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:radial-gradient(circle at 80% 5%,#123c60 0,transparent 34%),linear-gradient(155deg,#030b14,#07192f 55%,#06101e); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+    .shell { width:min(1120px,calc(100% - 32px)); margin:auto; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:22px 0; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:760; letter-spacing:-.02em; }
+    .ball { width:34px; height:34px; border-radius:50%; background:white; box-shadow:0 0 0 5px rgba(110,211,255,.1); position:relative; }
+    .ball:after { content:""; position:absolute; left:15px; top:3px; width:4px; height:28px; border-left:2px solid var(--blue); border-right:2px solid var(--blue); transform:rotate(-18deg); }
+    .nav-note { color:var(--muted); font-size:.9rem; }
+    main { display:grid; grid-template-columns:1.08fr .92fr; gap:54px; align-items:center; padding:64px 0 46px; }
+    .eyebrow { color:var(--sky); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.82rem; }
+    h1 { font-size:clamp(2.7rem,6vw,5.5rem); line-height:.95; letter-spacing:-.06em; margin:16px 0 22px; max-width:780px; }
+    .intro { font-size:clamp(1.05rem,2vw,1.25rem); line-height:1.65; color:var(--muted); max-width:620px; }
+    .tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+    .tag { padding:10px 14px; border:1px solid var(--line); background:rgba(16,57,88,.45); border-radius:999px; font-size:.92rem; }
+    .hero { width:100%; aspect-ratio:1; object-fit:cover; border-radius:28px; border:1px solid rgba(110,211,255,.25); box-shadow:0 30px 80px rgba(0,0,0,.38); }
+    .section { padding:32px 0 72px; }
+    .section h2 { font-size:1.8rem; margin:0 0 20px; letter-spacing:-.03em; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { padding:24px; min-height:170px; background:linear-gradient(145deg,rgba(21,60,91,.78),rgba(7,25,47,.82)); border:1px solid var(--line); border-radius:20px; }
+    .card span { display:inline-grid; place-items:center; width:36px; height:36px; border-radius:10px; background:rgba(110,211,255,.12); color:var(--sky); font-weight:800; }
+    .card h3 { margin:19px 0 8px; font-size:1.08rem; }
+    .card p { margin:0; color:var(--muted); line-height:1.55; }
+    footer { padding:24px 0 34px; border-top:1px solid var(--line); color:#7f9db3; font-size:.88rem; }
+    @media (max-width:760px) { header{padding:17px 0}.nav-note{display:none} main{grid-template-columns:1fr;gap:30px;padding:42px 0 30px}.hero{order:-1;border-radius:20px} .cards{grid-template-columns:1fr}.section{padding-bottom:46px} }
+  </style>
 </head>
-
 <body>
-
-<div class="container">
-
-  <div class="demo">
-    <a href="https://diamond247.com/clk?src=fLABjgt7" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
-    <iframe src="https://diamond247.com/clk?src=fLABjgt7"></iframe>
+  <div class="shell">
+    <header>
+      <div class="brand"><span class="ball" aria-hidden="true"></span><span>Cricket Updates</span></div>
+      <div class="nav-note">Schedules · Team news · Player stories</div>
+    </header>
+    <main>
+      <section>
+        <div class="eyebrow">Cricket coverage</div>
+        <h1>Cricket Match Updates</h1>
+        <p class="intro">Explore match schedules, team news and player stories in one clear, easy-to-read place.</p>
+        <div class="tags" aria-label="Coverage topics"><span class="tag">Match schedules</span><span class="tag">Team news</span><span class="tag">Player stories</span></div>
+      </section>
+      <img class="hero" src="cricket-hero.jpg" alt="Cricket bat, ball and stumps in a stadium">
+    </main>
+    <section class="section" aria-labelledby="coverage-heading">
+      <h2 id="coverage-heading">What you can explore</h2>
+      <div class="cards">
+        <article class="card"><span>01</span><h3>Match schedules</h3><p>Keep upcoming fixtures and match-day timings organised.</p></article>
+        <article class="card"><span>02</span><h3>Team news</h3><p>Read concise updates about squads, preparation and selection.</p></article>
+        <article class="card"><span>03</span><h3>Player stories</h3><p>Discover career highlights, milestones and notable performances.</p></article>
+      </div>
+    </section>
+    <footer>Cricket Updates · Independent sports information</footer>
   </div>
-
-  <div class="right">
-    <div class="box">
-
-```
-  <div class="badge">AUTO WEBSITE</div>
-
-  <h1>Get Your ID Now</h1>
-
-  <p class="sub">
-    Fast auto website service with easy deposit support.
-    New users can start quickly through WhatsApp.
-  </p>
-
-  <div class="features">https://diamond247.com/clk?src=fLABjgt7
-
-    <div class="feature">
-      Minimum Deposit: <span>₹100 Only</span>
-    </div>
-
-    <div class="feature">
-      Welcome Bonus: <span>10%</span>
-    </div>
-
-    <div class="feature">
-      Auto Website Support:
-      <a
-        class="signup-btn"
-        href="https://diamond247.com/clk?src=fLABjgt7"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Click on Signup
-      </a>
-    </div>
-
-    <div class="feature">
-      Quick Help:
-      <span>Deposit &amp; Withdrawal Support</span>
-    </div>
-
-  </div>
-
-  <div class="website-row">
-
-    <a
-      class="website"
-      href="https://diamond247.com/clk?src=fLABjgt7"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🌐 https://diamond247.com/clk?src=fLABjgt7
-    </a>
-
-    <a
-      class="whatsapp-small"
-      href="https://wa.me/+447933838366"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      💬 WhatsApp
-    </a>
-
-  </div>
-
-  <a
-    class="cta"
-    href="https://wa.me/+447933838366?text=Hello%20I%20want%20new%20diamond%20ID"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    📲 WhatsApp Now
-  </a>
-
-  <p class="trust">
-    ✅ Trusted Manual Support<br>
-    ✅ Simple Process<br>
-    ✅ Fast Response
-  </p>
-
-  <div class="footer">
-    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
-  </div>
-
-</div>
-```
-
-  </div>
-
-</div>
-
 </body>
 </html>
